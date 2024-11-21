@@ -16,7 +16,7 @@ struct CustomSearchBar: View {
         
         HStack {
             
-            TextField("Search Location", text: $searchQuery)
+            TextField(AppConstants.Strings.searchLocation, text: $searchQuery)
                 .padding()
             
             Spacer()
@@ -24,13 +24,13 @@ struct CustomSearchBar: View {
             Button(action: {
                 action()
             }, label: {
-                Image(systemName: "magnifyingglass")
+                Image(systemName: AppConstants.SystemImageName.magGlass)
                     .padding()
                     .foregroundStyle(Color.gray)
             })
             
         }
-        .background(RoundedRectangle(cornerRadius: 12).fill(Color.superLightGrey))
+        .background(RoundedRectangle(cornerRadius: AppConstants.Spacing.spacing12).fill(Color.superLightGrey))
         .padding()
     }
 }

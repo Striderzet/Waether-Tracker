@@ -31,7 +31,7 @@ struct ImageCache {
                         saveImage(forImage: newImage, withKey: urlString)
                     })
             }, placeholder: {
-                Image(systemName: "rainbow")
+                Image(systemName: AppConstants.SystemImageName.rainbow)
                     .resizable()
             })
             

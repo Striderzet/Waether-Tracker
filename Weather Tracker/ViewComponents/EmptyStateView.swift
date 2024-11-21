@@ -9,13 +9,13 @@ import SwiftUI
 
 struct EmptyStateView: View {
     var body: some View {
-        VStack(spacing: 8) {
-            Text("No City Selected")
+        VStack(spacing: AppConstants.Spacing.spacing8) {
+            Text(AppConstants.Strings.noCitySelected)
                 .font(.largeTitle.bold())
-            Text("Please Search For A City")
+            Text(AppConstants.Strings.searchForCity)
                 .font(.headline)
         }
-        .padding(.top, 200)
+        .padding(.top, AppConstants.Padding.padding200)
     }
 }
 

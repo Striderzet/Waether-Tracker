@@ -23,6 +23,7 @@ struct ContentView: View {
                 }
             })
             
+            // This clears the view when typing a query
             if weatherViewModel.searchQuery == "" {
                 
                 if weatherViewModel.weatherService.currentWeather != nil {

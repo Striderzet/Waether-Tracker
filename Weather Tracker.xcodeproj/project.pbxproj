@@ -26,6 +26,7 @@
 		CB34F9732CEE4D1A00263BDE /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB34F9722CEE4D1A00263BDE /* EmptyStateView.swift */; };
 		CB34F9762CEE7E1300263BDE /* DetailBarElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB34F9752CEE7E1300263BDE /* DetailBarElement.swift */; };
 		CB34F9782CEE845700263BDE /* WeatherResultsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB34F9772CEE845700263BDE /* WeatherResultsCard.swift */; };
+		CB34F97A2CEEDCE900263BDE /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB34F9792CEEDCE900263BDE /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		CB34F9722CEE4D1A00263BDE /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		CB34F9752CEE7E1300263BDE /* DetailBarElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBarElement.swift; sourceTree = "<group>"; };
 		CB34F9772CEE845700263BDE /* WeatherResultsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResultsCard.swift; sourceTree = "<group>"; };
+		CB34F9792CEEDCE900263BDE /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -157,6 +159,7 @@
 				CB34F95F2CEE45DC00263BDE /* Extensions */,
 				CB34F9522CEE32E200263BDE /* Network */,
 				CB34F9502CEE326200263BDE /* ImageCache.swift */,
+				CB34F9792CEEDCE900263BDE /* AppConstants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB34F9712CEE4CEB00263BDE /* WeatherView.swift in Sources */,
+				CB34F97A2CEEDCE900263BDE /* AppConstants.swift in Sources */,
 				CB34F9782CEE845700263BDE /* WeatherResultsCard.swift in Sources */,
 				CB34F95A2CEE341300263BDE /* NetworkConstants.swift in Sources */,
 				CB34F9642CEE48A100263BDE /* CustomSearchBar.swift in Sources */,

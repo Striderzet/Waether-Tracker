@@ -18,26 +18,26 @@ struct WeatherResultsCard: View {
             action()
         }, label: {
             
-            HStack(spacing: 56) {
+            HStack(spacing: AppConstants.Spacing.spacing56) {
                 
                 VStack {
                     
                     Text(currentWeather.location.name)
                         .font(.title.bold())
                     
-                    Text("\(currentWeather.current.temp_f, specifier: "%.0f")°")
-                        .font(.system(size: 65).bold())
+                    Text(AppConstants.Strings.temperatureWithDegree(currentWeather.current.temp_f))
+                        .font(.system(size: AppConstants.Sizes.fontSize65).bold())
                     
                 }
                 .padding()
                 
-                AnyView(ImageCache.showImage(withURL: "https:\(currentWeather.current.condition.icon)"))
-                    .frame(width: 100, height: 100)
+                AnyView(ImageCache.showImage(withURL: AppConstants.Strings.secureUrl(currentWeather.current.condition.icon)))
+                    .frame(width: AppConstants.Sizes.imageSize100, height: AppConstants.Sizes.imageSize100)
                     .background(Color.superLightGrey)
                     .padding()
                 
             }
-            .background(RoundedRectangle(cornerRadius: 12).fill(Color.superLightGrey))
+            .background(RoundedRectangle(cornerRadius: AppConstants.Spacing.spacing12).fill(Color.superLightGrey))
             .padding()
             
         })

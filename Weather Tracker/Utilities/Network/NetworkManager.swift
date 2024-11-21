@@ -32,6 +32,9 @@ class NetworkManager: NetworkManagerProtocol {
         
     }
     
+    /// Construct the URL components for desired API calls
+    /// - Parameter endpoint: Desired endpoint
+    /// - Returns: Constructed URL
     private func constructURLComponents(endpoint: APIEndpoint) -> URL {
         
         var components = URLComponents()

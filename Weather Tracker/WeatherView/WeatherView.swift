@@ -13,29 +13,29 @@ struct WeatherView: View {
     
     var body: some View {
         
-        VStack(spacing: 8) {
+        VStack(spacing: AppConstants.Spacing.spacing8) {
             
             AnyView(ImageCache.showImage(withURL: weatherService.secureImageUrl()))
-                .frame(width: 100, height: 100)
+                .frame(width: AppConstants.Sizes.imageSize100, height: AppConstants.Sizes.imageSize100)
                 .padding()
             
-            HStack(spacing: 8) {
+            HStack(spacing: AppConstants.Spacing.spacing8) {
                 Text(weatherService.currentWeather?.location.name ?? "New York City")
                     .font(.largeTitle.bold())
-                Image(systemName: "location.fill")
+                Image(systemName: AppConstants.SystemImageName.locationFill)
                     .resizable()
-                    .frame(width: 20, height: 20)
+                    .frame(width: AppConstants.Sizes.imageSize20, height: AppConstants.Sizes.imageSize20)
             }
             
             Text(weatherService.currentTempF())
-                .font(.system(size: 75).bold())
+                .font(.system(size: AppConstants.Sizes.fontSize75).bold())
             
-            HStack(spacing: 24) {
-                DetailBarElement(title: "Humidity", value: weatherService.currentHumidity())
-                DetailBarElement(title: "UV", value: weatherService.currentUv())
-                DetailBarElement(title: "Feels Like", value: weatherService.currentFeelsLikeF())
+            HStack(spacing: AppConstants.Spacing.spacing24) {
+                DetailBarElement(title: AppConstants.Strings.humidity, value: weatherService.currentHumidity())
+                DetailBarElement(title: AppConstants.Strings.uv, value: weatherService.currentUv())
+                DetailBarElement(title: AppConstants.Strings.feelsLike, value: weatherService.currentFeelsLikeF())
             }
-            .background(RoundedRectangle(cornerRadius: 12).fill(Color.superLightGrey))
+            .background(RoundedRectangle(cornerRadius: AppConstants.Spacing.spacing12).fill(Color.superLightGrey))
             .padding()
             
         }

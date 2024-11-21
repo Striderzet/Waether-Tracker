@@ -13,12 +13,12 @@ struct DetailBarElement: View {
     let value: LocalizedStringKey
     
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: AppConstants.Spacing.spacing8) {
             Text(title)
-                .font(.system(size: 14))
+                .font(.system(size: AppConstants.Sizes.fontSize14))
                 .foregroundStyle(Color.gray)
             Text(value)
-                .font(.system(size: 14))
+                .font(.system(size: AppConstants.Sizes.fontSize14))
                 .foregroundStyle(Color.darkGrey)
         }
         .padding()

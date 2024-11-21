@@ -25,8 +25,8 @@ class WeatherViewModel: ObservableObject {
         do {
             tempWeather = try await weatherService.fetchWeather(fromQuery: searchQuery)
         } catch {
-            print("There has been a search error: \(error)")
-            searchError = error.localizedDescription
+            print(AppConstants.ErrorMessages.searchError(error))
+            searchError = AppConstants.ErrorMessages.searchError(error)
         }
     }
     
@@ -39,8 +39,8 @@ class WeatherViewModel: ObservableObject {
             do {
                 weatherService.currentWeather = try await weatherService.fetchWeather(fromQuery: weatherService.savedWeatherQuery)
             } catch {
-                print("There has been an error loading the saved weather query: \(error)")
-                searchError = error.localizedDescription
+                print(AppConstants.ErrorMessages.savedWeatherError(error))
+                searchError = AppConstants.ErrorMessages.savedWeatherError(error)
             }
         }
     }

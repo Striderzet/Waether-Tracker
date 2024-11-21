@@ -16,7 +16,7 @@ enum URLConstants: String {
 
 enum APIEndpoint {
     
-    case getWeatherDetails(locationName: String = "")
+    case getWeatherDetails(locationName: String)
     
     var fullValueSuffix: String {
         switch self {
