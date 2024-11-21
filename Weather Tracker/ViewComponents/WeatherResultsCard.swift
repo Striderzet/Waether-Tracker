@@ -34,6 +34,7 @@ struct WeatherResultsCard: View {
                 }
                 .padding()
                 
+                /// - Note: I cannot change the background color of these images because they seem to not have transparent backgrounds. They will always be white.
                 AnyView(ImageCache.showImage(withURL: AppConstants.Strings.secureUrl(currentWeather?.current.condition.icon ?? "")))
                     .background(Color.superLightGrey)
                     .frame(width: AppConstants.Sizes.imageSize100, height: AppConstants.Sizes.imageSize100)

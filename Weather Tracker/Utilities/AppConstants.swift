@@ -17,6 +17,7 @@ struct AppConstants {
         static let searchLocation = "Search Location"
         static let noCitySelected = "No City Selected"
         static let searchForCity = "Please Search For A City"
+        static let error = "Error"
         
         static func secureUrl(_ url: String) -> String {
             return "https:\(url)"
@@ -62,6 +63,9 @@ struct AppConstants {
         static func savedWeatherError(_ error: Error) -> String {
             return "There has been an error loading the saved weather query: \(error)"
         }
+        
+        static let weatherError = "There is an issue fetching the weather. Please check your connection and try again."
+        
     }
     
 }

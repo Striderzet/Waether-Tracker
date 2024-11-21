@@ -27,7 +27,7 @@ class WeatherViewModel: @preconcurrency WeatherViewModelProtocol, ObservableObje
     @Published var searchQuery = ""
     @Published var networkError = ""
     @Published var presentErrorAlert = false
-    let errorAlert = Alert(title: Text("Error"), message: Text("There is an issue fetching the weather. Please check your connection and try again."))
+    let errorAlert = Alert(title: Text(AppConstants.Strings.error), message: Text(AppConstants.ErrorMessages.weatherError))
     
     @Published var tempWeather: WeatherModel? = nil
     
