@@ -23,30 +23,20 @@ struct ContentView: View {
                 }
             })
             
-            // This clears the view when typing a query
-            if weatherViewModel.searchQuery == "" {
-                
-                if weatherViewModel.weatherService.currentWeather != nil {
-                    
-                    WeatherView(weatherService: weatherViewModel.weatherService)
-                    
-                } else {
-                    EmptyStateView()
-                }
-                
-            } else if let temp = weatherViewModel.tempWeather {
-                
-                WeatherResultsCard(currentWeather: temp, action: {
-                    weatherViewModel.saveWeather()
-                })
-                
-            }
+            AnyView(weatherViewModel.prioritizeView(weatherView: WeatherView(weatherService: weatherViewModel.weatherService as! WeatherService),
+                                            weatherResultsCard: WeatherResultsCard(currentWeather: weatherViewModel.tempWeather,
+                                                                                   action: { weatherViewModel.saveWeather() }),
+                                            emptyState: EmptyStateView())
+                    )
             
             Spacer()
         }
         .task {
             await weatherViewModel.loadSavedWeatherQuery()
         }
+        .alert(isPresented: $weatherViewModel.presentErrorAlert, content: {
+            weatherViewModel.errorAlert
+        })
     }
 }
 

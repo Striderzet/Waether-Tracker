@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeatherResultsCard: View {
     
-    var currentWeather: WeatherModel
+    var currentWeather: WeatherModel?
     var action: () -> ()
     
     var body: some View {
@@ -22,18 +22,21 @@ struct WeatherResultsCard: View {
                 
                 VStack {
                     
-                    Text(currentWeather.location.name)
+                    Text(currentWeather?.location.name ?? "NYC")
                         .font(.title.bold())
+                        .foregroundStyle(Color.black)
+                        .minimumScaleFactor(0.2)
                     
-                    Text(AppConstants.Strings.temperatureWithDegree(currentWeather.current.temp_f))
+                    Text(AppConstants.Strings.temperatureWithDegree(currentWeather?.current.temp_f ?? 90))
                         .font(.system(size: AppConstants.Sizes.fontSize65).bold())
+                        .foregroundStyle(Color.black)
                     
                 }
                 .padding()
                 
-                AnyView(ImageCache.showImage(withURL: AppConstants.Strings.secureUrl(currentWeather.current.condition.icon)))
-                    .frame(width: AppConstants.Sizes.imageSize100, height: AppConstants.Sizes.imageSize100)
+                AnyView(ImageCache.showImage(withURL: AppConstants.Strings.secureUrl(currentWeather?.current.condition.icon ?? "")))
                     .background(Color.superLightGrey)
+                    .frame(width: AppConstants.Sizes.imageSize100, height: AppConstants.Sizes.imageSize100)
                     .padding()
                 
             }

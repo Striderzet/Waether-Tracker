@@ -17,6 +17,7 @@ struct CustomSearchBar: View {
         HStack {
             
             TextField(AppConstants.Strings.searchLocation, text: $searchQuery)
+                .frame(maxWidth: .infinity)
                 .padding()
             
             Spacer()

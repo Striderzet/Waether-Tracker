@@ -8,16 +8,30 @@
 import Foundation
 import SwiftUI
 
-@MainActor
-class WeatherViewModel: ObservableObject {
+protocol WeatherViewModelProtocol {
     
-    @Published var weatherService: WeatherService
+    var networkError: String { get set }
+    
+    func getSearchedWeather() async
+    func hasWeather() -> Bool
+    func loadSavedWeatherQuery() async
+    func saveWeather()
+    func prioritizeView<v1: View, v2: View, v3: View>(weatherView: v1, weatherResultsCard: v2, emptyState: v3) -> any View
+}
+
+@MainActor
+class WeatherViewModel: @preconcurrency WeatherViewModelProtocol, ObservableObject {
+    
+    @Published var weatherService: WeatherServiceProtocol
     
     @Published var searchQuery = ""
-    @Published var searchError = ""
+    @Published var networkError = ""
+    @Published var presentErrorAlert = false
+    let errorAlert = Alert(title: Text("Error"), message: Text("There is an issue fetching the weather. Please check your connection and try again."))
+    
     @Published var tempWeather: WeatherModel? = nil
     
-    init(weatherService: WeatherService) {
+    init(weatherService: WeatherServiceProtocol) {
         self.weatherService = weatherService
     }
     
@@ -26,7 +40,8 @@ class WeatherViewModel: ObservableObject {
             tempWeather = try await weatherService.fetchWeather(fromQuery: searchQuery)
         } catch {
             print(AppConstants.ErrorMessages.searchError(error))
-            searchError = AppConstants.ErrorMessages.searchError(error)
+            networkError = error.localizedDescription
+            presentErrorAlert = true
         }
     }
     
@@ -40,7 +55,8 @@ class WeatherViewModel: ObservableObject {
                 weatherService.currentWeather = try await weatherService.fetchWeather(fromQuery: weatherService.savedWeatherQuery)
             } catch {
                 print(AppConstants.ErrorMessages.savedWeatherError(error))
-                searchError = AppConstants.ErrorMessages.savedWeatherError(error)
+                networkError = error.localizedDescription
+                presentErrorAlert = true
             }
         }
     }
@@ -51,6 +67,22 @@ class WeatherViewModel: ObservableObject {
             tempWeather = nil
             searchQuery = ""
         }
+    }
+    
+    func prioritizeView<v1: View, v2: View, v3: View>(weatherView: v1, weatherResultsCard: v2, emptyState: v3) -> any View {
+        
+        return VStack {
+            if searchQuery == "" {
+                if weatherService.currentWeather != nil {
+                    weatherView
+                } else {
+                    emptyState
+                }
+            } else if tempWeather != nil {
+                weatherResultsCard
+            }
+        }
+        
     }
     
 }

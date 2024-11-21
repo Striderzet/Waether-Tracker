@@ -155,11 +155,11 @@
 		CB34F94D2CEE31FD00263BDE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CB34F9792CEEDCE900263BDE /* AppConstants.swift */,
+				CB34F9502CEE326200263BDE /* ImageCache.swift */,
 				CB34F9742CEE4EA300263BDE /* Services */,
 				CB34F95F2CEE45DC00263BDE /* Extensions */,
 				CB34F9522CEE32E200263BDE /* Network */,
-				CB34F9502CEE326200263BDE /* ImageCache.swift */,
-				CB34F9792CEEDCE900263BDE /* AppConstants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

@@ -8,7 +8,20 @@
 import Foundation
 import SwiftUI
 
-final class WeatherService: ObservableObject {
+protocol WeatherServiceProtocol {
+    var currentWeather: WeatherModel? { get set }
+    var savedWeatherQuery: String { get set }
+    func fetchWeather(fromQuery query: String) async throws -> WeatherModel
+    func storeSelectedWeatherSearch(_ selected: WeatherModel)
+    func secureImageUrl() -> String
+    func currentTempF() -> LocalizedStringKey
+    func currentHumidity() -> LocalizedStringKey
+    func currentUv() -> LocalizedStringKey
+    func currentFeelsLikeF() -> LocalizedStringKey
+    func hasSavedQuery() -> Bool
+}
+
+final class WeatherService: WeatherServiceProtocol, ObservableObject {
     
     @Published var currentWeather: WeatherModel?
     
