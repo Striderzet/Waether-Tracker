@@ -17,6 +17,7 @@ protocol WeatherViewModelProtocol {
     func loadSavedWeatherQuery() async
     func saveWeather()
     func prioritizeView<v1: View, v2: View, v3: View>(weatherView: v1, weatherResultsCard: v2, emptyState: v3) -> any View
+    
 }
 
 @MainActor
@@ -64,8 +65,10 @@ class WeatherViewModel: @preconcurrency WeatherViewModelProtocol, ObservableObje
     func saveWeather() {
         if let temp = tempWeather {
             weatherService.storeSelectedWeatherSearch(temp)
-            tempWeather = nil
-            searchQuery = ""
+            withAnimation {
+                tempWeather = nil
+                searchQuery = ""
+            }
         }
     }
     

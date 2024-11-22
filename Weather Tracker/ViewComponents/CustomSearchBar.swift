@@ -19,6 +19,9 @@ struct CustomSearchBar: View {
             TextField(AppConstants.Strings.searchLocation, text: $searchQuery)
                 .frame(maxWidth: .infinity)
                 .padding()
+                .onSubmit {
+                    action()
+                }
             
             Spacer()
             

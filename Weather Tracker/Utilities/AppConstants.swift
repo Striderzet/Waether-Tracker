@@ -64,7 +64,7 @@ struct AppConstants {
             return "There has been an error loading the saved weather query: \(error)"
         }
         
-        static let weatherError = "There is an issue fetching the weather. Please check your connection and try again."
+        static let weatherError = "There is an issue fetching the weather. Please check your connection or try a different search."
         
     }
     

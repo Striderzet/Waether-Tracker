@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
     
@@ -23,11 +22,12 @@ struct ContentView: View {
                 }
             })
             
-            AnyView(weatherViewModel.prioritizeView(weatherView: WeatherView(weatherService: weatherViewModel.weatherService as! WeatherService),
-                                            weatherResultsCard: WeatherResultsCard(currentWeather: weatherViewModel.tempWeather,
-                                                                                   action: { weatherViewModel.saveWeather() }),
-                                            emptyState: EmptyStateView())
-                    )
+            AnyView(weatherViewModel
+                .prioritizeView(weatherView: WeatherView(weatherService: weatherViewModel.weatherService as! WeatherService),
+                                weatherResultsCard: WeatherResultsCard(currentWeather: weatherViewModel.tempWeather,
+                                                                       action: { weatherViewModel.saveWeather() }),
+                                emptyState: EmptyStateView())
+            )
             
             Spacer()
         }

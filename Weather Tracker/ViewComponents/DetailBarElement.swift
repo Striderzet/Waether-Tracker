@@ -25,4 +25,8 @@ struct DetailBarElement: View {
     }
 }
 
+#Preview {
+    DetailBarElement(title: "UV", value: "77")
+}
+
 
