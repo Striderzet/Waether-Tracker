@@ -10,7 +10,7 @@
 - When the app is hard closed and restarted, the last tapped queried result will be shown instead of the empty state view. This will also stay persisted until another successful queried result is tapped.
 
 ### Focus Areas: 
-Async await networking layer with generic object setting for parsing and flexibility, dependency injection, Swift Concurrency. I feel these areas are key because they are essential for not only the app to run smoothy, but for other developers to come in and be able to hit the ground running to add features and maintain the app. I practice these no matter the size of the app.
+Async await networking layer with generic object setting for parsing and flexibility, dependency injection, Swift Concurrency, MVVM with SwiftUI. I feel these areas are key because they are essential for not only the app to run smoothy, but for other developers to come in and be able to hit the ground running to add features and maintain the app. I practice these no matter the size of the app.
 
 ### Time Spent: 
 About 5.5 hours. The extra time was spent on adding some unit tests to the app for light coverage.
@@ -20,9 +20,6 @@ Instead of using a external framework for image caching, I created a custom cach
 
 ### External Code and Dependencies:
 I used some code snippets that I have had from previous personal projects. I did not use any external dependancies for this project.
-
-### Additional Information:
-This is an awesome take home interview project and it is refreshing to see. I feel I was able to exhibit a lot of my SwiftUI knowledge here.
 
 
 
